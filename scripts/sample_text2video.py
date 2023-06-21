@@ -249,8 +249,7 @@ def main():
             prompt_str = prompt.replace("/", "_slash_") if "/" in prompt else prompt
             save_name = prompt_str.replace(" ", "_") if " " in prompt else prompt_str
             if opt.seed is not None:
-                save_name = save_name + f"_seed{seed:05d}"
-                save_name = save_name[:255]
+                save_name = save_name[:99] + f"_seed{seed:05d}"
             save_results(samples, opt.save_dir, save_name=save_name, 
                          save_fps=opt.save_fps, save_jpg=opt.save_jpg, 
                          save_mp4=opt.save_mp4, save_npz=opt.save_npz, 
